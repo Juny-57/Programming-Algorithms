@@ -96,3 +96,31 @@ class Solution(object):
                 
         return float(sum)/count
         
+#5
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        
+        
+        dct = {}
+        temp_answer = ''
+        answer = ''
+
+        
+        for index, i in enumerate(s):
+            if i in dct and index>dct[i]:
+                temp_answer+=i
+        
+                answer = temp_answer if len(temp_answer) > len(answer) else answer
+                temp_answer=''
+                
+            else :
+                temp_answer+=i
+                
+            dct[i] = index
+        
+        
+        return temp_answer if len(temp_answer) > len(answer) else answer
